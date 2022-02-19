@@ -1,0 +1,13 @@
+kubectl apply -f configMaps/env-config-map.yml;
+sleep 10;
+kubectl apply -f mongodb/mongo-deployment.yml;
+sleep 10;
+kubectl apply -f mongodb/mongo-service.yml;
+sleep 10;
+kubectl apply -f backend/backend-deployment.yml;
+sleep 10;
+kubectl apply -f backend/backend-service.yml;
+sleep 10;
+kubectl apply -f api/api-deployment.yml;
+sleep 10;
+kubectl apply -f api/api-service.yml;

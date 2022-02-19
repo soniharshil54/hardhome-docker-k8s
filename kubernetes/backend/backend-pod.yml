@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend-pod
+  labels:
+    app: hardhome-backend-pod
+spec:
+  containers:
+    - name: hardhome-backend-container
+      image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest     
+      ports:
+        - containerPort: 3020       
+      env: 
+        - name: MONGO_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: mongo-host
+        - name: MONGO_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: mongo-port
+        - name: MONGO_INITDB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: mongo-db
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: mongodb-username
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: mongodb-password      
+        - name: AWS_ACCESS_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: aws-access-key     
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: hardhome-env-config-map
+              key: backend-server-port 
+  imagePullSecrets:
+    - name: us-east-1-ecr-registry            
+
+

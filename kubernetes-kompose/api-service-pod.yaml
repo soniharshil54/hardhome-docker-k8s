@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.prod.yml -o kubernetes
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/hardhome-docker-network-prod: "true"
+    io.kompose.service: api-service
+  name: api-service
+spec:
+  containers:
+    - args:
+        - npm
+        - start
+      env:
+        - name: BACKEND_SERVER_HOST
+          value: backend-service
+        - name: BACKEND_SERVER_PORT
+        - name: PORT
+      image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
+      name: hardhome-api-service-prod
+      ports:
+        - containerPort: 3020
+      resources: {}
+      volumeMounts:
+        - mountPath: /usr/src/app
+          name: api-service-claim0
+  restartPolicy: OnFailure
+  volumes:
+    - name: api-service-claim0
+      persistentVolumeClaim:
+        claimName: api-service-claim0
+status: {}

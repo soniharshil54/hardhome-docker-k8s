@@ -1,0 +1,7 @@
+mongodata
+*node_modules
+.env
+envfile
+env-config.js
+build
+test*

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+  labels: 
+    app: hardhome-mongodb
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: hardhome-mongodb
+  template:
+    metadata:
+      name: hardhome-mongodb-pod
+      labels:
+        app: hardhome-mongodb   
+    spec:
+      containers:
+        - name: hardhome-mongodb-container     
+          image: mongo  
+          ports:
+            - containerPort: 27017 
+          env: 
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: mongodb-username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: mongodb-password

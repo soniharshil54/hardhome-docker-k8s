@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hardhome-api-deployment
+  labels:
+    app: hardhome-api-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: hardhome-api-pod
+  template:
+    metadata:
+      labels: 
+        name: hardhome-api-pod
+        app: hardhome-api-app
+        kick: hardhome-api-pod
+    spec:    
+      containers:
+        - name: hardhome-api-container
+          image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest     
+          ports:
+            - containerPort: 3020       
+          env: 
+            - name: BACKEND_SERVER_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: backend-server-host
+            - name: BACKEND_SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: backend-server-port
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: aws-access-key     
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: api-server-port   
+      imagePullSecrets:
+        - name: us-east-1-ecr-registry             

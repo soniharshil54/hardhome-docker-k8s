@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  # mongonex:
+  #   image: mongo
+  #   restart: always
+  #   networks:
+  #     - hardhome-network
+  #   volumes:
+  #     - "./mongodata:/data/db"  
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: example
+
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   networks:
+  #     - hardhome-network
+  #   depends_on:
+  #     - mongonex  
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  #     ME_CONFIG_MONGODB_URL: mongodb://root:example@mongonex:27017/
+
+  backend-service:
+    build:
+      context: hardhome-backend/
+      dockerfile: Dockerfile
+    image: hardhome-backend-service-image-build:latest
+
+  api-service:
+    build:
+      context: hardhome-api/
+      dockerfile: Dockerfile
+    image: hardhome-api-service-image-build:latest
+
+  # hardhome-web-server:
+  #   build:
+  #     context: ./hardhome-frontend-server
+  #   image: hardhome-web-server-image-build:latest
+
+  frontend-service:
+    build:
+      context: ./hardhome-frontend
+    image: hardhome-frontend-service-image-build:latest  

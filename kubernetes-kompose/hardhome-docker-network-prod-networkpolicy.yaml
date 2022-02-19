@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  creationTimestamp: null
+  name: hardhome-docker-network-prod
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              io.kompose.network/hardhome-docker-network-prod: "true"
+  podSelector:
+    matchLabels:
+      io.kompose.network/hardhome-docker-network-prod: "true"

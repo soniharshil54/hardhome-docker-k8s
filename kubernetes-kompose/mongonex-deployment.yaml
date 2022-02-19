@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.prod.yml -o kubernetes
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mongonex
+  name: mongonex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: mongonex
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.prod.yml -o kubernetes
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/hardhome-docker-network-prod: "true"
+        io.kompose.service: mongonex
+    spec:
+      containers:
+        - env:
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: example
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: root
+          image: mongo
+          name: hardhome-mongo-prod
+          resources: {}
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongonex-claim0
+      restartPolicy: Always
+      volumes:
+        - name: mongonex-claim0
+          persistentVolumeClaim:
+            claimName: mongonex-claim0
+status: {}
