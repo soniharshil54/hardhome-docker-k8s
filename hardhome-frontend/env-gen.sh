@@ -24,6 +24,6 @@ do
   
   # Append configuration property to JS file
   echo "  $varname: \"$value\"," >> ./env-config.js
-done < envfile
+done < env/envfile
 
 echo "}" >> ./env-config.js

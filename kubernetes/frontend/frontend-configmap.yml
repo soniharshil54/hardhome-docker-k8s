@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: hardhome-frontend-configmap
+  namespace: default
+data:
+  envfile: |
+    REACT_APP_API_SERVER_IP=192.168.49.2
+    REACT_APP_API_SERVER_PORT=30007
