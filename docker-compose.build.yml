@@ -36,12 +36,7 @@ services:
       context: hardhome-api/
       dockerfile: Dockerfile
     image: hardhome-api-service-image-build:latest
-
-  # hardhome-web-server:
-  #   build:
-  #     context: ./hardhome-frontend-server
-  #   image: hardhome-web-server-image-build:latest
-
+    
   frontend-service:
     build:
       context: ./hardhome-frontend

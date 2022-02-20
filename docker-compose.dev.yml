@@ -67,16 +67,6 @@ services:
       - ./hardhome-api:/usr/src/app
     command: npm run nodemon  
 
-  # hardhome-web-server:
-  #   build:
-  #     context: ./hardhome-frontend-server
-  #   image: hardhome-web-server-image:latest
-  #   volumes:
-  #    - "./hardhome-frontend-server/build:/usr/share/nginx/html:ro"
-  #   ports:
-  #     - "11000:80"
-  #   restart: on-failure  
-
   frontend-service:
     build:
       context: hardhome-frontend/

@@ -59,15 +59,6 @@ services:
       - hardhome-network-prod
     command: npm start  
 
-  # hardhome-web-server:
-  #   image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
-  #   container_name: hardhome-web-server-prod
-  #   volumes:
-  #    - "./hardhome-frontend-server/build:/usr/share/nginx/html:ro"
-  #   ports:
-  #     - "11000:80"
-  #   restart: on-failure  
-
   frontend-service:
     image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-frontend-service-image-prod:latest
     container_name: hardhome-frontend-service-prod

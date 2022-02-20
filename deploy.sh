@@ -8,8 +8,5 @@ docker push 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-servic
 docker tag hardhome-api-service-image-build:latest 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
 docker push 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
 
-# docker tag hardhome-web-server-image-build:latest 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
-# docker push 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
-
 docker tag hardhome-frontend-service-image-build:latest 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-frontend-service-image-prod:latest
 docker push 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-frontend-service-image-prod:latest
