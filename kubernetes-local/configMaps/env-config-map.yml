@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hardhome-env-config-map
+data:
+  mongo-host: "hardhome-mongo-service"
+  mongo-port: "27017"
+  mongo-db: "hardhome-db"
+  mongodb-username: "root"
+  mongodb-password: "example"  
+  backend-server-host: "hardhome-backend-service"
+  backend-server-port: "3010"
+  api-server-port: "3020"
+  aws-access-key: "dummy-aws-access-key"
