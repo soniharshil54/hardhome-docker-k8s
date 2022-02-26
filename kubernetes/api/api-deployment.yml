@@ -41,6 +41,15 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: hardhome-env-config-map
-                  key: api-server-port   
+                  key: api-server-port  
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 3020
+              httpHeaders:
+              - name: Custom-Header
+                value: Awesome
+            initialDelaySeconds: 3
+            periodSeconds: 3         
       imagePullSecrets:
         - name: us-east-1-ecr-registry             
