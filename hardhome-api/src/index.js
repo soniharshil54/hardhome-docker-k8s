@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3020;
 const cors = require("cors");
+let error = false;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,6 +30,9 @@ app.get("/envs", async (req, res, next) => {
 
 app.get("/healthcheck", async (req, res, next) => {
   try {
+    if(error) {
+      return res.status(500).json({message: "Something bad happened with server!! Errors!!!"});
+    }
     return res.json({
       message: 'ok',
       note: 'ok'
@@ -36,6 +40,38 @@ app.get("/healthcheck", async (req, res, next) => {
   } catch (err) {
     console.log('err', err);
     next({ status: 400, message: "failed to healthcheck" });
+  }
+});
+
+app.get("/create-error", async (req, res, next) => {
+  try {
+    error = true;
+    if(error) {
+      return res.status(500).json({message: "Error created!! healtchcheck won't work now!!"});
+    }
+    return res.json({
+      message: 'ok',
+      note: 'ok'
+    })
+  } catch (err) {
+    console.log('err', err);
+    next({ status: 400, message: "failed to create error" });
+  }
+});
+
+app.get("/solve-error", async (req, res, next) => {
+  try {
+    error = false;
+    if(error) {
+      return res.status(500).json({message: "Something bad happened with server!!"});
+    }
+    return res.json({
+      message: 'error now solved!! healtcheck will work ok now!!',
+      note: 'ok'
+    })
+  } catch (err) {
+    console.log('err', err);
+    next({ status: 400, message: "failed to solve error" });
   }
 });
 
