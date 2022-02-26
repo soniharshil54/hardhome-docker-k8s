@@ -25,7 +25,7 @@ spec:
         - name: MONGO_PORT
           value: "27017"
         - name: PORT
-      image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest
+      image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest
       name: hardhome-backend-service-prod
       resources: {}
       volumeMounts:

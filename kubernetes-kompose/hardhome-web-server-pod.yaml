@@ -10,7 +10,7 @@ metadata:
   name: hardhome-web-server
 spec:
   containers:
-    - image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
+    - image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
       name: hardhome-web-server-prod
       ports:
         - containerPort: 80

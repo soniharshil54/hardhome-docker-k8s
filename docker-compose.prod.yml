@@ -35,7 +35,7 @@ services:
       MONGO_HOST: mongonex
       MONGO_PORT: 27017
       MONGO_DB: ${MONGO_DB}
-    image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest
+    image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest
     container_name: hardhome-backend-service-prod
     restart: on-failure
     # ports:
@@ -50,7 +50,7 @@ services:
       PORT: ${API_SERVER_PORT}
       BACKEND_SERVER_HOST: backend-service
       BACKEND_SERVER_PORT: ${BACKEND_SERVER_PORT}
-    image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
+    image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
     container_name: hardhome-api-service-prod
     restart: on-failure
     ports:
@@ -60,7 +60,7 @@ services:
     command: npm start  
 
   frontend-service:
-    image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-frontend-service-image-prod:latest
+    image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-frontend-service-image-prod:latest
     container_name: hardhome-frontend-service-prod
     volumes:
       - "./envfile:/usr/share/nginx/html/envfile"

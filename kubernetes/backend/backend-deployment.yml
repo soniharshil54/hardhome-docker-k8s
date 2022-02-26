@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hardhome-backend-container
-          image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest     
+          image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-backend-service-image-prod:latest     
           ports:
             - containerPort: 3020       
           env: 

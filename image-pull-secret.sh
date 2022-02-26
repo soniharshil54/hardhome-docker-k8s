@@ -1,4 +1,4 @@
-ACCOUNT=342511920901
+ACCOUNT=121487958432
 REGION=us-east-1
 SECRET_NAME=us-east-1-ecr-registry
 EMAIL=email@email.com

@@ -19,7 +19,7 @@ spec:
           value: backend-service
         - name: BACKEND_SERVER_PORT
         - name: PORT
-      image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
+      image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-api-service-image-prod:latest
       name: hardhome-api-service-prod
       ports:
         - containerPort: 3020

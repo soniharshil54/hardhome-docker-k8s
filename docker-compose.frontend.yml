@@ -4,7 +4,7 @@ services:
     build:
       context: hardhome-frontend/
       dockerfile: Dockerfile.dev
-    # image: 342511920901.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
+    # image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-web-server-image-prod:latest
     container_name: hardhome-frontend
     volumes:
       - "./envfile:/usr/share/nginx/html/envfile"
