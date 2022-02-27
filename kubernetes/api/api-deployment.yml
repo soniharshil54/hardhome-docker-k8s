@@ -34,9 +34,14 @@ spec:
                   key: backend-server-port
             - name: AWS_ACCESS_KEY
               valueFrom:
-                configMapKeyRef:
-                  name: hardhome-env-config-map
-                  key: aws-access-key     
+                secretKeyRef:
+                  name: hardhome-secret
+                  key: aws-access-key    
+            - name: AWS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: hardhome-secret
+                  key: aws-secret-key             
             - name: PORT
               valueFrom:
                 configMapKeyRef:

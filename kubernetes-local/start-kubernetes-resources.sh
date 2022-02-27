@@ -1,6 +1,9 @@
 kubectl apply -f configMaps/env-config-map.yml;
 echo "env-config-map is up!";
 sleep 10;
+kubectl apply -f secrets/secret.yml;
+echo "secret is up!";
+sleep 10;
 kubectl apply -f mongodb/mongo-pvc.yml;
 echo "nmongo-pvc is up!";
 sleep 10;
