@@ -31,3 +31,10 @@ spec:
                 configMapKeyRef:
                   name: hardhome-env-config-map
                   key: mongodb-password
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongodb-volume
+      volumes:
+        - name: mongodb-volume
+          persistentVolumeClaim:
+            claimName: mongodb-pvc        
