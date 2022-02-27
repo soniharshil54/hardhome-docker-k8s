@@ -1,5 +1,9 @@
 kubectl delete -f configMaps/env-config-map.yml;
 sleep 10;
+kubectl delete -f mongodb/mongo-pvc.yml;
+sleep 10;
+kubectl delete -f mongodb/mongo-pv.yml;
+sleep 10;
 kubectl delete -f mongodb/mongo-deployment.yml;
 sleep 10;
 kubectl delete -f mongodb/mongo-service.yml;
