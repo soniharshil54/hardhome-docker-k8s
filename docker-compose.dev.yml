@@ -73,7 +73,7 @@ services:
       dockerfile: Dockerfile.dev
     container_name: hardhome-frontend-service-prod
     volumes:
-      - "./envfile:/usr/share/nginx/html/envfile"
+      - "./envfile:/usr/share/nginx/html/env/envfile"
     ports:
       - "12000:80"
     restart: on-failure   

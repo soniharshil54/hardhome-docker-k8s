@@ -63,7 +63,7 @@ services:
     image: 121487958432.dkr.ecr.us-east-1.amazonaws.com/hardhome-frontend-service-image-prod:latest
     container_name: hardhome-frontend-service-prod
     volumes:
-      - "./envfile:/usr/share/nginx/html/envfile"
+      - "./envfile:/usr/share/nginx/html/env/envfile"
     ports:
       - "12000:80"
     restart: on-failure    
