@@ -57,6 +57,11 @@ spec:
                 configMapKeyRef:
                   name: hardhome-env-config-map
                   key: backend-server-port 
+            - name: MONGO_CONNECTION_STRING
+              valueFrom:
+                configMapKeyRef:
+                  name: hardhome-env-config-map
+                  key: mongo-connection-string          
           livenessProbe:
             httpGet:
               path: /healthcheck

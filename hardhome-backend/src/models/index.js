@@ -4,7 +4,9 @@ const MONGO_PORT = process.env.MONGO_PORT;
 const MONGO_DB = process.env.MONGO_DB;
 const MONGO_USERNAME = process.env.ME_CONFIG_MONGODB_ADMINUSERNAME;
 const MONGO_PASSWORD = process.env.ME_CONFIG_MONGODB_ADMINPASSWORD
-const mongooseConnectionString = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
+const mongooseConnectionString = MONGO_CONNECTION_STRING;
+// const mongooseConnectionString = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 mongoose.connect(mongooseConnectionString,{
     keepAlive: true,
     useNewUrlParser: true,
